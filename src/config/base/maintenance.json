@@ -1,0 +1,131 @@
+{
+    "serviciosMantenimiento": [
+        {
+            "id": "mantenimiento-tecnico",
+            "titulo": "Mantenimiento técnico",
+            "descripcion": "Updates + backups + monitorización",
+            "precio": 60,
+            "detalles": [
+                "Actualizaciones de seguridad mensuales",
+                "Backup automático diario",
+                "Monitorización 24/7 del servidor",
+                "Optimización de velocidad trimestral",
+                "Informes mensuales de rendimiento"
+            ]
+        },
+        {
+            "id": "gestion-contenidos",
+            "titulo": "Gestión de contenidos",
+            "descripcion": "Actualización blog + noticias (4 posts/mes)",
+            "precio": 120,
+            "detalles": [
+                "4 artículos de blog profesionales al mes",
+                "Optimización SEO de cada artículo",
+                "Imágenes seleccionadas y optimizadas",
+                "Promoción en redes sociales básica",
+                "Calendario editorial planificado"
+            ]
+        },
+        {
+            "id": "soporte-prioritario",
+            "titulo": "Soporte técnico prioritario",
+            "descripcion": "Respuesta 24h + cambios menores incluidos",
+            "precio": 40,
+            "detalles": [
+                "Respuesta garantizada en máximo 24h",
+                "Cambios menores de contenido incluidos",
+                "Soporte técnico por WhatsApp",
+                "Videollamadas de consulta mensuales",
+                "Prioridad máxima en todas las consultas"
+            ]
+        },
+        {
+            "id": "hosting-completo",
+            "titulo": "Gestión hosting completa",
+            "descripcion": "Servidor + dominio + SSL + optimización",
+            "precio": 80,
+            "detalles": [
+                "Gestión completa del hosting",
+                "Renovación automática de dominio",
+                "Certificado SSL gratuito y renovación",
+                "CDN para máxima velocidad global",
+                "Configuración de emails corporativos"
+            ]
+        }
+    ],
+    "paquetesRecomendados": [
+        {
+            "nombre": "Básico",
+            "descripcion": "Para webs que solo necesitan funcionar",
+            "servicios": [
+                "hosting-completo"
+            ],
+            "precioMensual": 80,
+            "ahorro": 0,
+            "recomendadoPara": "Webs informativas sin actualizaciones frecuentes"
+        },
+        {
+            "nombre": "Profesional",
+            "descripcion": "Recomendado para la mayoría de empresas",
+            "servicios": [
+                "mantenimiento-tecnico",
+                "hosting-completo"
+            ],
+            "precioMensual": 140,
+            "ahorro": 0,
+            "recomendadoPara": "Empresas que quieren tranquilidad total"
+        },
+        {
+            "nombre": "Premium",
+            "descripcion": "Servicio completo con contenido actualizado",
+            "servicios": [
+                "mantenimiento-tecnico",
+                "gestion-contenidos",
+                "hosting-completo",
+                "soporte-prioritario"
+            ],
+            "precioMensual": 300,
+            "ahorro": 0,
+            "recomendadoPara": "Empresas que quieren presencia digital activa"
+        }
+    ],
+    "costesHosting": {
+        "descripcion": "Costes estimados mensuales de hosting (NO incluidos en presupuesto inicial)",
+        "opciones": [
+            {
+                "tipo": "básica",
+                "proveedor": "Vercel + Railway",
+                "precio": "25-40€/mes",
+                "incluye": [
+                    "Frontend optimizado",
+                    "Base de datos PostgreSQL",
+                    "SSL automático",
+                    "CDN global"
+                ],
+                "recomendadoPara": "Proyectos estándar"
+            },
+            {
+                "tipo": "premium",
+                "proveedor": "AWS/Google Cloud",
+                "precio": "50-100€/mes",
+                "incluye": [
+                    "Máxima escalabilidad",
+                    "Base de datos empresarial",
+                    "Backup automático",
+                    "Soporte 24/7"
+                ],
+                "recomendadoPara": "Proyectos con alto tráfico"
+            }
+        ]
+    },
+    "aclaracionesMantenimiento": {
+        "soportePostEntrega": "30 días de soporte gratuito post-entrega para errores o fallos",
+        "noIncluidoEnSoporte": [
+            "Cambios de contenido nuevos",
+            "Nuevas funcionalidades",
+            "Rediseños",
+            "Campañas de marketing"
+        ],
+        "politicaMantenimiento": "Los servicios de mantenimiento se facturan mensualmente y pueden cancelarse con 30 días de antelación"
+    }
+}

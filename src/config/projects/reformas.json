@@ -1,0 +1,286 @@
+{
+    "id": "reformas",
+    "empresa": "Desarrollo Web - Empresa de Reformas",
+    "precioBase": 2800,
+    "tecnologia": "Next.js 15 + TypeScript + Tailwind CSS + PostgreSQL + Flask",
+    "tiempo": "4-5 semanas",
+    "descripcion": "Web corporativa con blog para empresa de reformas",
+    "resumenEjecutivo": {
+        "proyecto": "Web corporativa con blog para empresa de reformas",
+        "tiempoEstimado": "4-5 semanas"
+    },
+    "alcanceDelProyecto": [
+        "Web responsive (móvil, tablet, desktop)",
+        "Formulario de contacto profesional",
+        "Integración WhatsApp Business",
+        "Sistema de emails (integración con su proveedor SMTP)",
+        "Blog completo con gestor de contenidos",
+        "Panel de administración",
+        "SEO optimizado",
+        "Configuración inicial de hosting",
+        "Galería de trabajos realizados"
+    ],
+    "desglose": [
+        {
+            "categoria": "ANÁLISIS Y DISEÑO",
+            "precio": 400,
+            "items": [
+                {
+                    "concepto": "Briefing técnico",
+                    "descripcion": "Análisis de necesidades y competencia",
+                    "precio": 150
+                },
+                {
+                    "concepto": "Adaptación diseño",
+                    "descripcion": "Personalización visual y branding",
+                    "precio": 250
+                }
+            ]
+        },
+        {
+            "categoria": "DESARROLLO TÉCNICO",
+            "precio": 1600,
+            "items": [
+                {
+                    "concepto": "Arquitectura base",
+                    "descripcion": "Migración desde template profesional",
+                    "precio": 400
+                },
+                {
+                    "concepto": "Páginas principales",
+                    "descripcion": "Inicio, Servicios, Nosotros, Contacto",
+                    "precio": 500
+                },
+                {
+                    "concepto": "Sistema de blog",
+                    "descripcion": "CRUD completo + editor de contenidos",
+                    "precio": 400
+                },
+                {
+                    "concepto": "Formularios",
+                    "descripcion": "Contacto + WhatsApp + integración email",
+                    "precio": 300
+                }
+            ]
+        },
+        {
+            "categoria": "CONTENIDO Y SEO",
+            "precio": 500,
+            "items": [
+                {
+                    "concepto": "Redacción SEO",
+                    "descripcion": "Textos optimizados (si no los aporta)",
+                    "precio": 200
+                },
+                {
+                    "concepto": "Optimización técnica",
+                    "descripcion": "Meta tags, sitemap, velocidad",
+                    "precio": 150
+                },
+                {
+                    "concepto": "Imágenes profesionales",
+                    "descripcion": "Edición, optimización y subida",
+                    "precio": 150
+                }
+            ]
+        },
+        {
+            "categoria": "INFRAESTRUCTURA Y DESPLIEGUE",
+            "precio": 200,
+            "items": [
+                {
+                    "concepto": "Setup producción",
+                    "descripcion": "Configuración servidor, dominio, SSL",
+                    "precio": 100
+                },
+                {
+                    "concepto": "Testing y pruebas",
+                    "descripcion": "Funcionalidad, responsive, velocidad",
+                    "precio": 100
+                }
+            ]
+        },
+        {
+            "categoria": "ENTREGA Y SOPORTE",
+            "precio": 100,
+            "items": [
+                {
+                    "concepto": "Documentación",
+                    "descripcion": "Manual de uso del panel admin",
+                    "precio": 50
+                },
+                {
+                    "concepto": "Formación",
+                    "descripcion": "Sesión de 1h para gestionar contenidos",
+                    "precio": 50
+                }
+            ]
+        }
+    ],
+    "serviciosExtra": [
+        {
+            "id": "logo-vectorizado",
+            "titulo": "Tengo logo vectorizado listo",
+            "descripcion": "Logo en formato .ai, .eps o .svg de alta calidad",
+            "precio": -350,
+            "tipo": "ahorro",
+            "seccion": "Diseño y Branding"
+        },
+        {
+            "id": "colores-definidos",
+            "titulo": "Tengo paleta de colores definida",
+            "descripcion": "Colores corporativos y manual de marca",
+            "precio": -200,
+            "tipo": "ahorro",
+            "seccion": "Diseño y Branding"
+        },
+        {
+            "id": "fotos-profesionales",
+            "titulo": "Tengo fotografías profesionales",
+            "descripcion": "Fotos de trabajos realizados en alta calidad",
+            "precio": -400,
+            "tipo": "ahorro",
+            "seccion": "Diseño y Branding"
+        },
+        {
+            "id": "textos-redactados",
+            "titulo": "Tengo todos los textos redactados",
+            "descripcion": "Textos para todas las páginas, optimizados y revisados",
+            "precio": -300,
+            "tipo": "ahorro",
+            "seccion": "Contenidos"
+        },
+        {
+            "id": "articulos-blog",
+            "titulo": "Tengo artículos para el blog",
+            "descripcion": "Al menos 5 artículos redactados y listos para publicar",
+            "precio": -150,
+            "tipo": "ahorro",
+            "seccion": "Contenidos"
+        },
+        {
+            "id": "sistema-citas",
+            "titulo": "Sistema de citas online",
+            "descripcion": "Calendario integrado con notificaciones automáticas",
+            "precio": 600,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Adicionales"
+        },
+        {
+            "id": "calculadora-presupuestos",
+            "titulo": "Calculadora de presupuestos",
+            "descripcion": "Formulario interactivo para que clientes estimen costes",
+            "precio": 400,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Adicionales"
+        },
+        {
+            "id": "area-privada",
+            "titulo": "Área privada de clientes",
+            "descripcion": "Login + documentos + seguimiento de proyectos",
+            "precio": 800,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Adicionales"
+        },
+        {
+            "id": "galeria-avanzada",
+            "titulo": "Galería avanzada antes/después",
+            "descripcion": "Con filtros por categorías y efectos visuales",
+            "precio": 300,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Adicionales"
+        },
+        {
+            "id": "chat-vivo",
+            "titulo": "Chat en vivo",
+            "descripcion": "Integración con Crisp o Intercom",
+            "precio": 200,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Adicionales"
+        },
+        {
+            "id": "analytics-pro",
+            "titulo": "Google Analytics Pro",
+            "descripcion": "Configuración avanzada con eventos y objetivos",
+            "precio": 200,
+            "tipo": "extra",
+            "seccion": "Configuración Avanzada"
+        },
+        {
+            "id": "facebook-pixel",
+            "titulo": "Facebook Pixel completo",
+            "descripcion": "Setup con eventos personalizados para conversiones",
+            "precio": 150,
+            "tipo": "extra",
+            "seccion": "Configuración Avanzada"
+        }
+    ],
+    "cronograma": [
+        {
+            "semana": 1,
+            "tareas": "Briefing y diseño inicial",
+            "entregables": "Mockups + arquitectura"
+        },
+        {
+            "semana": 2,
+            "tareas": "Desarrollo páginas principales",
+            "entregables": "Páginas básicas funcionales"
+        },
+        {
+            "semana": 3,
+            "tareas": "Blog + panel admin",
+            "entregables": "Sistema de gestión completo"
+        },
+        {
+            "semana": 4,
+            "tareas": "Integración formularios + WhatsApp",
+            "entregables": "Funcionalidades de contacto"
+        },
+        {
+            "semana": 5,
+            "tareas": "SEO + testing + despliegue",
+            "entregables": "Web en producción"
+        }
+    ],
+    "paginasIncluidas": {
+        "principales": [
+            {
+                "nombre": "Inicio",
+                "descripcion": "Hero, servicios destacados, testimonios, CTA"
+            },
+            {
+                "nombre": "Servicios",
+                "descripcion": "Reformas integrales, cocinas, baños, etc."
+            },
+            {
+                "nombre": "Nosotros",
+                "descripcion": "Equipo, experiencia, valores"
+            },
+            {
+                "nombre": "Contacto",
+                "descripcion": "Formulario, mapa, datos, WhatsApp"
+            },
+            {
+                "nombre": "Blog",
+                "descripcion": "Artículos, consejos, antes/después"
+            },
+            {
+                "nombre": "Panel Admin",
+                "descripcion": "Gestión de contenidos y consultas"
+            }
+        ],
+        "integracioesTecnicas": [
+            "Sistema de emails (requiere configuración de su SMTP)",
+            "WhatsApp Business integrado",
+            "Google Analytics y Search Console",
+            "Galería de imágenes optimizada (Cloudinary)",
+            "SEO técnico avanzado",
+            "100% responsive y accesible"
+        ]
+    },
+    "contacto": {
+        "telefono": "+34 622 42 88 91",
+        "email": "nelsonvbarcelona@gmail.com",
+        "whatsapp": "+34622428891"
+    }
+}

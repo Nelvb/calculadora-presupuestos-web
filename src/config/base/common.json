@@ -1,0 +1,77 @@
+{
+    "formaPago": {
+        "descripcion": "50% al inicio del proyecto / 50% en producción",
+        "porcentajes": {
+            "inicio": 50,
+            "produccion": 50
+        },
+        "metodos": [
+            "Transferencia bancaria",
+            "Bizum"
+        ]
+    },
+    "contacto": {
+        "telefono": "+34 622 42 88 91",
+        "email": "nelsonvbarcelona@gmail.com",
+        "whatsapp": "+34622428891"
+    },
+    "aclaraciones": {
+        "incluido": [
+            "Primera consulta y análisis",
+            "3 rondas de revisiones incluidas",
+            "Optimización para móviles",
+            "Formulario de contacto",
+            "Botones de redes sociales (enlaces simples)",
+            "Google Analytics básico (instalación + configuración inicial)",
+            "Google Search Console (configuración básica)",
+            "Documentación técnica"
+        ],
+        "noIncluido": [
+            "Gestión de contenido en redes sociales",
+            "Campañas de publicidad (Google, Facebook, Instagram)",
+            "SEO avanzado o posicionamiento activo",
+            "Analytics avanzados (eventos, objetivos, reportes)",
+            "Métricas de comportamiento (heatmaps, grabaciones)",
+            "Chat en vivo, calculadoras, áreas de cliente",
+            "Mantenimiento de contenidos"
+        ],
+        "sobreRedesSociales": {
+            "incluido": "Botones de enlaces a sus perfiles",
+            "noIncluido": "Crear perfiles, subir contenido, responder mensajes, diseñar posts"
+        },
+        "sobreAnalytics": {
+            "incluido": "Instalación básica para ver visitas",
+            "noIncluido": "Configurar objetivos, eventos, embudos, reportes automáticos"
+        },
+        "sobreSEO": "Optimización técnica básica (meta tags, velocidad, sitemap). No incluido: Posicionamiento activo, creación de contenido mensual, link building",
+        "sobreMantenimiento": "Incluido: 30 días de soporte post-entrega para errores o fallos. No incluido: Cambios de contenido, nuevas funcionalidades, actualizaciones mensuales",
+        "sobreMarketing": {
+            "noOfrecemos": "Gestión de Google Ads, Facebook Ads, campañas publicitarias",
+            "recomendacion": "Podemos conectarle con especialistas en marketing digital"
+        }
+    },
+    "queNecesitamosDelCliente": [
+        "Logo en formato vectorial (.ai, .eps o .svg)",
+        "Textos redactados (o presupuesto adicional)",
+        "Fotos de calidad de trabajos realizados",
+        "Datos de contacto y redes sociales",
+        "Decisión sobre email: usar el suyo o contratar servicio",
+        "Decisión sobre hosting: preferencia entre simplicidad o potencia"
+    ],
+    "hostingOptions": {
+        "basica": {
+            "nombre": "Vercel + Railway",
+            "precio": "25-40€/mes",
+            "descripcion": "Opción simple y eficiente"
+        },
+        "premium": {
+            "nombre": "AWS/Google Cloud",
+            "precio": "50-100€/mes",
+            "descripcion": "Máxima potencia y escalabilidad"
+        }
+    },
+    "validezPresupuesto": "30 días",
+    "notaImportante": "No ofrecemos servicios de marketing ni publicidad (Google Ads, Facebook Ads, gestión redes sociales, SEO mensual). Nos especializamos únicamente en desarrollo web profesional."
+,
+  "cronograma": []
+}
