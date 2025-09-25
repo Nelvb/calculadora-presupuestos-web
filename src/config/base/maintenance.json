@@ -85,12 +85,11 @@
                 "soporte-prioritario"
             ],
             "precioMensual": 300,
-            "ahorro": 0,
+            "ahorro": 40,
             "recomendadoPara": "Empresas que quieren presencia digital activa"
         }
     ],
     "costesHosting": {
-        "descripcion": "Costes estimados mensuales de hosting (NO incluidos en presupuesto inicial)",
         "opciones": [
             {
                 "tipo": "básica",

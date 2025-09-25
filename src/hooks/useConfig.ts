@@ -5,13 +5,14 @@ Proporciona datos centralizados para toda la aplicación
 */
 
 import { useState, useEffect } from 'react';
-import type { ProjectConfig, CommonConfig, MaintenanceItem } from '../config/types';
+import type { ProjectConfig, CommonConfig, MaintenanceItem, MaintenanceConfig } from '../config/types';
 import commonConfig from '../config/base/common.json';
 import maintenanceConfig from '../config/base/maintenance.json';
 
 interface UseConfigReturn {
     projectConfig: ProjectConfig | null;
     commonConfig: CommonConfig;
+    maintenanceConfig: MaintenanceConfig;
     maintenanceItems: MaintenanceItem[];
     isLoading: boolean;
     error: string | null;
@@ -66,7 +67,7 @@ export const useConfig = (projectType: string): UseConfigReturn => {
     // Convertir servicios de mantenimiento al formato esperado
     const maintenanceItems: MaintenanceItem[] = maintenanceConfig.serviciosMantenimiento.map(service => ({
         id: service.id,
-        titulo: `${service.titulo} (${service.precio}€/mes)`,
+        titulo: service.titulo,
         descripcion: service.descripcion,
         precio: service.precio
     }));
@@ -74,6 +75,7 @@ export const useConfig = (projectType: string): UseConfigReturn => {
     return {
         projectConfig,
         commonConfig: commonConfig as CommonConfig,
+        maintenanceConfig: maintenanceConfig as MaintenanceConfig,
         maintenanceItems,
         isLoading,
         error

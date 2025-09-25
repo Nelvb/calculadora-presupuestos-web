@@ -1,0 +1,79 @@
+/*
+CSS Module para elementos de servicio
+Estilos específicos para items seleccionables (ahorros, extras, mantenimiento)
+*/
+
+.serviceItem {
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background: var(--bg-primary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.serviceItem:hover {
+    border-color: var(--accent-color);
+    background-color: #f8faff;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow);
+}
+
+.serviceItem.selected {
+    border-color: var(--success-color);
+    background-color: #f0fff4;
+}
+
+.serviceItem.savings {
+    border-left: 4px solid var(--success-color);
+}
+
+.serviceItem.extras {
+    border-left: 4px solid var(--danger-color);
+}
+
+.serviceItem.maintenance {
+    border-left: 4px solid var(--warning-color);
+}
+
+.checkbox {
+    transform: scale(1.2);
+    cursor: pointer;
+    accent-color: var(--success-color);
+}
+
+.serviceTitle {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+.serviceDescription {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.priceTag {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.priceTag.savings {
+    background-color: #c6f6d5;
+    color: #22543d;
+}
+
+.priceTag.extras {
+    background-color: #fed7d7;
+    color: #742a2a;
+}
+
+.priceTag.maintenance {
+    background-color: #fef7e0;
+    color: #744210;
+}

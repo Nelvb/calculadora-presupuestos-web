@@ -44,13 +44,13 @@ function App() {
   }
 
   if (!accessValidation.valid) {
-    return <UnauthorizedView error={accessValidation.error} />;
+    return <UnauthorizedView />;
   }
 
   const { project } = getUrlParams();
 
   if (!project || !accessValidation.config) {
-    return <UnauthorizedView error="Configuración inválida" />;
+    return <UnauthorizedView />;
   }
 
   return (

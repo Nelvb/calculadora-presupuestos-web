@@ -1,6 +1,6 @@
 {
     "formaPago": {
-        "descripcion": "50% al inicio del proyecto / 50% en producción",
+        "descripcion": "50% al inicio y 50% en producción. Posibilidad de fraccionar en 3 pagos bajo acuerdo previo.",
         "porcentajes": {
             "inicio": 50,
             "produccion": 50
@@ -15,10 +15,124 @@
         "email": "nelsonvbarcelona@gmail.com",
         "whatsapp": "+34622428891"
     },
+    "infraestructuraTecnica": {
+        "sistemaEmails": {
+            "descripcion": "Sistema de emails (el cliente debe elegir):",
+            "opciones": [
+                {
+                    "tipo": "corporativo",
+                    "nombre": "Usar su email corporativo existente",
+                    "descripcion": "(recomendado)",
+                    "coste": "Gratuito"
+                },
+                {
+                    "tipo": "externo-sendgrid",
+                    "nombre": "SendGrid",
+                    "descripcion": "Servicio profesional de envío",
+                    "coste": "desde 15€/mes"
+                },
+                {
+                    "tipo": "externo-mailgun", 
+                    "nombre": "Mailgun",
+                    "descripcion": "Alternativa robusta",
+                    "coste": "desde 35€/mes"
+                }
+            ],
+            "configuracion": "Configuramos la integración con cualquier opción que elijan"
+        },
+        "hostingServidores": {
+            "descripcion": "Costes mensuales estimados (NO incluidos en presupuesto):",
+            "opciones": [
+                {
+                    "tipo": "basica",
+                    "nombre": "Vercel + Railway",
+                    "coste": "25-40€/mes",
+                    "incluye": [
+                        "Frontend optimizado",
+                        "Backend escalable", 
+                        "Base de datos PostgreSQL",
+                        "Certificado SSL automático"
+                    ],
+                    "recomendadoPara": "Proyectos estándar"
+                },
+                {
+                    "tipo": "premium",
+                    "nombre": "AWS/Google Cloud",
+                    "coste": "50-100€/mes", 
+                    "incluye": [
+                        "Máxima escalabilidad",
+                        "Base de datos empresarial",
+                        "Backup automático",
+                        "Soporte técnico 24/7"
+                    ],
+                    "recomendadoPara": "Alto tráfico y máximo rendimiento"
+                }
+            ],
+            "decision": {
+                "titulo": "El cliente debe decidir:",
+                "opciones": [
+                    "Si prefiere simplicidad (Railway/Render) o potencia (AWS/GCP)",
+                    "Nosotros configuramos cualquier opción elegida"
+                ]
+            }
+        }
+    },
+    "ejemplosCostesMenuales": {
+        "titulo": "EJEMPLOS DE COSTES MENSUALES TOTALES",
+        "casos": [
+            {
+                "nombre": "Solo web básica",
+                "componentes": [
+                    {
+                        "concepto": "Hosting",
+                        "coste": "25-100€/mes"
+                    }
+                ],
+                "total": "25-100€/mes"
+            },
+            {
+                "nombre": "Web con mantenimiento básico", 
+                "componentes": [
+                    {
+                        "concepto": "Hosting",
+                        "coste": "25-100€/mes"
+                    },
+                    {
+                        "concepto": "Mantenimiento técnico",
+                        "coste": "60€/mes"
+                    }
+                ],
+                "total": "85-160€/mes"
+            },
+            {
+                "nombre": "Web con soporte completo",
+                "componentes": [
+                    {
+                        "concepto": "Hosting", 
+                        "coste": "25-100€/mes"
+                    },
+                    {
+                        "concepto": "Mantenimiento técnico",
+                        "coste": "60€/mes"
+                    },
+                    {
+                        "concepto": "Gestión contenidos",
+                        "coste": "120€/mes"
+                    },
+                    {
+                        "concepto": "Soporte prioritario",
+                        "coste": "40€/mes"
+                    }
+                ],
+                "total": "245-320€/mes"
+            }
+        ],
+        "nota": "Estos son ejemplos orientativos. Cada cliente puede elegir solo los servicios técnicos que necesite."
+    },
     "aclaraciones": {
         "incluido": [
             "Primera consulta y análisis",
-            "3 rondas de revisiones incluidas",
+            "3 rondas de revisiones incluidas", 
             "Optimización para móviles",
             "Formulario de contacto",
             "Botones de redes sociales (enlaces simples)",
@@ -29,7 +143,7 @@
         "noIncluido": [
             "Gestión de contenido en redes sociales",
             "Campañas de publicidad (Google, Facebook, Instagram)",
-            "SEO avanzado o posicionamiento activo",
+            "SEO avanzado o posicionamiento activo", 
             "Analytics avanzados (eventos, objetivos, reportes)",
             "Métricas de comportamiento (heatmaps, grabaciones)",
             "Chat en vivo, calculadoras, áreas de cliente",
@@ -43,8 +157,14 @@
             "incluido": "Instalación básica para ver visitas",
             "noIncluido": "Configurar objetivos, eventos, embudos, reportes automáticos"
         },
-        "sobreSEO": "Optimización técnica básica (meta tags, velocidad, sitemap). No incluido: Posicionamiento activo, creación de contenido mensual, link building",
-        "sobreMantenimiento": "Incluido: 30 días de soporte post-entrega para errores o fallos. No incluido: Cambios de contenido, nuevas funcionalidades, actualizaciones mensuales",
+        "sobreSEO": {
+            "incluido": "Optimización técnica básica (meta tags, velocidad, sitemap)",
+            "noIncluido": "Posicionamiento activo, creación de contenido mensual, link building"
+        },
+        "sobreMantenimiento": {
+            "incluido": "30 días de soporte post-entrega para errores o fallos",
+            "noIncluido": "Cambios de contenido, nuevas funcionalidades, actualizaciones mensuales"
+        },
         "sobreMarketing": {
             "noOfrecemos": "Gestión de Google Ads, Facebook Ads, campañas publicitarias",
             "recomendacion": "Podemos conectarle con especialistas en marketing digital"
@@ -53,25 +173,21 @@
     "queNecesitamosDelCliente": [
         "Logo en formato vectorial (.ai, .eps o .svg)",
         "Textos redactados (o presupuesto adicional)",
-        "Fotos de calidad de trabajos realizados",
+        "Fotos de calidad de trabajos realizados", 
         "Datos de contacto y redes sociales",
         "Decisión sobre email: usar el suyo o contratar servicio",
         "Decisión sobre hosting: preferencia entre simplicidad o potencia"
     ],
-    "hostingOptions": {
-        "basica": {
-            "nombre": "Vercel + Railway",
-            "precio": "25-40€/mes",
-            "descripcion": "Opción simple y eficiente"
-        },
-        "premium": {
-            "nombre": "AWS/Google Cloud",
-            "precio": "50-100€/mes",
-            "descripcion": "Máxima potencia y escalabilidad"
-        }
-    },
     "validezPresupuesto": "30 días",
-    "notaImportante": "No ofrecemos servicios de marketing ni publicidad (Google Ads, Facebook Ads, gestión redes sociales, SEO mensual). Nos especializamos únicamente en desarrollo web profesional."
-,
-  "cronograma": []
+    "notaImportante": "No ofrecemos servicios de marketing ni publicidad (Google Ads, Facebook Ads, gestión redes sociales, SEO mensual). Nos especializamos únicamente en desarrollo web profesional.",
+    "siguientePaso": {
+        "titulo": "Reunión técnica gratuita (30 min):",
+        "objetivos": [
+            "Definir necesidades específicas",
+            "Decidir infraestructura (hosting/emails)",
+            "Aclarar qué servicios adicionales les interesan", 
+            "Resolver dudas técnicas"
+        ]
+    },
+    "cronograma": []
 }

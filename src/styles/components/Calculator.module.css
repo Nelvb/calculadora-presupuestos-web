@@ -1,0 +1,27 @@
+/*
+CSS Module para el header y contenedor principal de la calculadora
+Usa Tailwind para layout, CSS personalizado para estilos visuales específicos
+*/
+
+.header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    color: white;
+    box-shadow: var(--shadow-lg);
+    border-radius: var(--border-radius);
+}
+
+.headerTitle {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    font-weight: 700;
+}
+
+.headerSubtitle {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    opacity: 0.9;
+}
+
+.clientInfo {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}

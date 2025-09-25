@@ -7,7 +7,8 @@
     "descripcion": "Web corporativa con blog para empresa de reformas",
     "resumenEjecutivo": {
         "proyecto": "Web corporativa con blog para empresa de reformas",
-        "tiempoEstimado": "4-5 semanas"
+        "tiempoEstimado": "4-5 semanas",
+        "precio": "Precio base: 2.800€ (ajustable según extras o descuentos seleccionados)"
     },
     "alcanceDelProyecto": [
         "Web responsive (móvil, tablet, desktop)",
@@ -20,6 +21,56 @@
         "Configuración inicial de hosting",
         "Galería de trabajos realizados"
     ],
+    "paginasYFuncionalidades": {
+        "paginasPrincipales": [
+            {
+                "nombre": "Inicio",
+                "descripcion": "Hero, servicios destacados, testimonios, CTA"
+            },
+            {
+                "nombre": "Servicios", 
+                "descripcion": "Reformas integrales, cocinas, baños, etc."
+            },
+            {
+                "nombre": "Nosotros",
+                "descripcion": "Equipo, experiencia, valores"
+            },
+            {
+                "nombre": "Contacto",
+                "descripcion": "Formulario, mapa, datos, WhatsApp"
+            },
+            {
+                "nombre": "Blog",
+                "descripcion": "Artículos, consejos, antes/después"
+            },
+            {
+                "nombre": "Panel Admin",
+                "descripcion": "Gestión de contenidos y consultas"
+            }
+        ],
+        "integracionesTecnicas": [
+            "Sistema de emails (requiere configuración de su SMTP)",
+            "WhatsApp Business integrado",
+            "Google Analytics y Search Console",
+            "Galería de imágenes optimizada (Cloudinary)",
+            "SEO técnico avanzado",
+            "100% responsive y accesible"
+        ]
+    },
+    "cronogramaSiAdicionales": {
+        "titulo": "SI SE AÑADEN SERVICIOS ADICIONALES:",
+        "tiemposExtra": [
+            {
+                "servicio": "Logo + fotografía",
+                "tiempo": "+1-2 semanas"
+            },
+            {
+                "servicio": "Funcionalidades avanzadas (citas, calculadora, etc.)",
+                "tiempo": "+1-3 semanas"
+            }
+        ],
+        "nota": "Los servicios de mantenimiento mensual empiezan tras la entrega"
+    },
     "desglose": [
         {
             "categoria": "ANÁLISIS Y DISEÑO",
@@ -145,7 +196,7 @@
         {
             "id": "textos-redactados",
             "titulo": "Tengo todos los textos redactados",
-            "descripcion": "Textos para todas las páginas, optimizados y revisados",
+            "descripcion": "Textos para todas las páginas optimizados y revisados",
             "precio": -300,
             "tipo": "ahorro",
             "seccion": "Contenidos"
@@ -242,42 +293,6 @@
             "entregables": "Web en producción"
         }
     ],
-    "paginasIncluidas": {
-        "principales": [
-            {
-                "nombre": "Inicio",
-                "descripcion": "Hero, servicios destacados, testimonios, CTA"
-            },
-            {
-                "nombre": "Servicios",
-                "descripcion": "Reformas integrales, cocinas, baños, etc."
-            },
-            {
-                "nombre": "Nosotros",
-                "descripcion": "Equipo, experiencia, valores"
-            },
-            {
-                "nombre": "Contacto",
-                "descripcion": "Formulario, mapa, datos, WhatsApp"
-            },
-            {
-                "nombre": "Blog",
-                "descripcion": "Artículos, consejos, antes/después"
-            },
-            {
-                "nombre": "Panel Admin",
-                "descripcion": "Gestión de contenidos y consultas"
-            }
-        ],
-        "integracioesTecnicas": [
-            "Sistema de emails (requiere configuración de su SMTP)",
-            "WhatsApp Business integrado",
-            "Google Analytics y Search Console",
-            "Galería de imágenes optimizada (Cloudinary)",
-            "SEO técnico avanzado",
-            "100% responsive y accesible"
-        ]
-    },
     "contacto": {
         "telefono": "+34 622 42 88 91",
         "email": "nelsonvbarcelona@gmail.com",

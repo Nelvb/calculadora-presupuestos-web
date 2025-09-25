@@ -1,11 +1,11 @@
 /*
-Hook personalizado para gestionar la lógica de cálculos del presupuesto
-Maneja servicios seleccionados, precios, ahorros y mantenimiento mensual
-Proporciona funciones para actualizar y exportar el estado de la calculadora
+Hook personalizado para gestionar la lógica de cálculos del presupuesto.
+Mantiene servicios seleccionados, precios base, ahorros y extras.
+Proporciona funciones para actualizar y exportar el estado.
 */
 
-import { useState, useCallback } from 'react';
-import type { CalculatorState, ServiceItem, MaintenanceItem } from '../config/types';
+import { useState, useCallback } from "react";
+import type { CalculatorState, ServiceItem, MaintenanceItem } from "../config/types";
 
 interface UseCalculatorReturn {
     calculatorState: CalculatorState;
@@ -25,72 +25,56 @@ export const useCalculator = (basePrice: number): UseCalculatorReturn => {
         extras: 0,
         mantenimientoMensual: 0,
         serviciosSeleccionados: [],
-        mantenimientoSeleccionado: []
+        mantenimientoSeleccionado: [],
     });
 
     const toggleService = useCallback((service: ServiceItem) => {
-        setCalculatorState(prev => {
-            const isSelected = prev.serviciosSeleccionados.some(s => s.id === service.id);
+        setCalculatorState((prev) => {
+            const isSelected = prev.serviciosSeleccionados.some((s) => s.id === service.id);
 
             if (isSelected) {
-                // Deseleccionar
-                const newServices = prev.serviciosSeleccionados.filter(s => s.id !== service.id);
-                const newAhorros = service.tipo === 'ahorro'
-                    ? prev.ahorros - Math.abs(service.precio)
-                    : prev.ahorros;
-                const newExtras = service.tipo === 'extra'
-                    ? prev.extras - service.precio
-                    : prev.extras;
-
+                const newServices = prev.serviciosSeleccionados.filter((s) => s.id !== service.id);
                 return {
                     ...prev,
                     serviciosSeleccionados: newServices,
-                    ahorros: newAhorros,
-                    extras: newExtras
+                    ahorros:
+                        service.tipo === "ahorro" ? prev.ahorros - Math.abs(service.precio) : prev.ahorros,
+                    extras: service.tipo === "extra" ? prev.extras - service.precio : prev.extras,
                 };
             } else {
-                // Seleccionar
                 const newServices = [...prev.serviciosSeleccionados, service];
-                const newAhorros = service.tipo === 'ahorro'
-                    ? prev.ahorros + Math.abs(service.precio)
-                    : prev.ahorros;
-                const newExtras = service.tipo === 'extra'
-                    ? prev.extras + service.precio
-                    : prev.extras;
-
                 return {
                     ...prev,
                     serviciosSeleccionados: newServices,
-                    ahorros: newAhorros,
-                    extras: newExtras
+                    ahorros:
+                        service.tipo === "ahorro" ? prev.ahorros + Math.abs(service.precio) : prev.ahorros,
+                    extras: service.tipo === "extra" ? prev.extras + service.precio : prev.extras,
                 };
             }
         });
     }, []);
 
     const toggleMaintenance = useCallback((maintenance: MaintenanceItem) => {
-        setCalculatorState(prev => {
-            const isSelected = prev.mantenimientoSeleccionado.some(m => m.id === maintenance.id);
+        setCalculatorState((prev) => {
+            const isSelected = prev.mantenimientoSeleccionado.some(
+                (m) => m.id === maintenance.id
+            );
 
             if (isSelected) {
-                // Deseleccionar
-                const newMaintenance = prev.mantenimientoSeleccionado.filter(m => m.id !== maintenance.id);
-                const newMonthlyPrice = prev.mantenimientoMensual - maintenance.precio;
-
+                const newMaintenance = prev.mantenimientoSeleccionado.filter(
+                    (m) => m.id !== maintenance.id
+                );
                 return {
                     ...prev,
                     mantenimientoSeleccionado: newMaintenance,
-                    mantenimientoMensual: newMonthlyPrice
+                    mantenimientoMensual: prev.mantenimientoMensual - maintenance.precio,
                 };
             } else {
-                // Seleccionar
                 const newMaintenance = [...prev.mantenimientoSeleccionado, maintenance];
-                const newMonthlyPrice = prev.mantenimientoMensual + maintenance.precio;
-
                 return {
                     ...prev,
                     mantenimientoSeleccionado: newMaintenance,
-                    mantenimientoMensual: newMonthlyPrice
+                    mantenimientoMensual: prev.mantenimientoMensual + maintenance.precio,
                 };
             }
         });
@@ -103,13 +87,13 @@ export const useCalculator = (basePrice: number): UseCalculatorReturn => {
             extras: 0,
             mantenimientoMensual: 0,
             serviciosSeleccionados: [],
-            mantenimientoSeleccionado: []
+            mantenimientoSeleccionado: [],
         });
     }, [basePrice]);
 
     const getTotalPrice = useCallback(() => {
-        return calculatorState.precioBase - calculatorState.ahorros + calculatorState.extras;
-    }, [calculatorState]);
+        return basePrice + calculatorState.extras - calculatorState.ahorros;
+    }, [basePrice, calculatorState.extras, calculatorState.ahorros]);
 
     const getMonthlyPrice = useCallback(() => {
         return calculatorState.mantenimientoMensual;
@@ -131,6 +115,6 @@ export const useCalculator = (basePrice: number): UseCalculatorReturn => {
         getTotalPrice,
         getMonthlyPrice,
         getSavings,
-        getExtras
+        getExtras,
     };
 };
