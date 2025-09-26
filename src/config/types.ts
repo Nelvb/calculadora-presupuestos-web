@@ -240,7 +240,7 @@ export interface ProjectConfig {
     cronogramaSiAdicionales?: CronogramaSiAdicionales;
     desglose: ProjectBreakdown[];
     serviciosExtra: ServiceItem[];
-    contacto: ContactInfo;
+    contacto?: ContactInfo;
     cronograma: CronogramaFase[];
 }
 
