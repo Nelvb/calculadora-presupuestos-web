@@ -235,6 +235,40 @@ export interface ProjectConfig {
         tiempoEstimado: string;
         precio: string;
     };
+    sistemaPrecios?: {
+        titulo: string;
+        precioBase: {
+            cantidad: number;
+            descripcion: string;
+            incluyeContenido: string[];
+        };
+        descuentos: {
+            titulo: string;
+            descripcion: string;
+            items: Array<{
+                concepto: string;
+                descuento: number;
+                descripcion: string;
+            }>;
+            maximoDescuento: number;
+            precioMinimo: number;
+            nota: string;
+        };
+        ejemplosPrecios: Array<{
+            caso: string;
+            precio: number;
+            descripcion: string;
+        }>;
+    };
+    contenidoIncluido?: {
+        titulo: string;
+        descripcion: string;
+        elementos: Array<{
+            item: string;
+            descripcion: string;
+        }>;
+        ventaja?: string;
+    };
     alcanceDelProyecto?: string[];
     paginasYFuncionalidades?: PaginasYFuncionalidades;
     cronogramaSiAdicionales?: CronogramaSiAdicionales;
