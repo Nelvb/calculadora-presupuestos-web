@@ -69,8 +69,6 @@ Diseño profesional con gradientes, totales y botones de acción
 .summaryContent {
     font-size: 0.85rem;
     line-height: 1.4;
-    max-height: 200px;
-    overflow-y: auto;
 }
 
 .summaryItem {

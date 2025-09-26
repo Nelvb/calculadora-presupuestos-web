@@ -5,7 +5,7 @@ y configuración general. Garantiza tipado estricto y reutilizable.
 */
 
 // =============================
-// 📌 Partidas y desglose
+// Partidas y desglose
 // =============================
 
 export interface BreakdownItem {
@@ -21,7 +21,7 @@ export interface ProjectBreakdown {
 }
 
 // =============================
-// 📌 Servicios adicionales
+// Servicios adicionales
 // =============================
 
 export interface ServiceItem {
@@ -34,7 +34,7 @@ export interface ServiceItem {
 }
 
 // =============================
-// 📌 Mantenimiento
+// Mantenimiento
 // =============================
 
 export interface MaintenanceItem {
@@ -76,7 +76,7 @@ export interface MaintenanceConfig {
 }
 
 // =============================
-// 📌 Información de contacto
+// Información de contacto
 // =============================
 
 export interface ContactInfo {
@@ -87,7 +87,7 @@ export interface ContactInfo {
 }
 
 // =============================
-// 📌 Cronograma
+// Cronograma
 // =============================
 
 export interface CronogramaFase {
@@ -97,7 +97,7 @@ export interface CronogramaFase {
 }
 
 // =============================
-// 📌 NUEVAS INTERFACES - Infraestructura técnica
+// Infraestructura técnica
 // =============================
 
 export interface EmailOption {
@@ -136,7 +136,7 @@ export interface InfraestructuraTecnica {
 }
 
 // =============================
-// NUEVAS INTERFACES
+// Ejemplos de costes
 // =============================
 
 export interface ComponenteCoste {
@@ -157,7 +157,7 @@ export interface EjemplosCostesMenuales {
 }
 
 // =============================
-// NUEVAS INTERFACES
+// Páginas y funcionalidades
 // =============================
 
 export interface PaginaPrincipal {
@@ -171,7 +171,7 @@ export interface PaginasYFuncionalidades {
 }
 
 // =============================
-// NUEVAS INTERFACES
+// Cronograma con adicionales
 // =============================
 
 export interface TiempoExtra {
@@ -186,7 +186,7 @@ export interface CronogramaSiAdicionales {
 }
 
 // =============================
-// NUEVAS INTERFACES
+// Siguiente paso
 // =============================
 
 export interface SiguientePaso {
@@ -195,7 +195,7 @@ export interface SiguientePaso {
 }
 
 // =============================
-// NUEVAS INTERFACES
+// Aclaraciones ampliadas
 // =============================
 
 export interface AclaracionDetallada {
@@ -258,14 +258,15 @@ export interface CommonConfig {
         metodos: string[];
     };
     contacto: ContactInfo;
-    infraestructuraTecnica: InfraestructuraTecnica;
-    ejemplosCostesMenuales: EjemplosCostesMenuales;
-    aclaraciones: AclaracionesAmpliadas;
-    queNecesitamosDelCliente: string[];
-    validezPresupuesto: string;
-    notaImportante: string;
-    siguientePaso: SiguientePaso;
-    cronograma: CronogramaFase[];
+    infraestructuraTecnica?: InfraestructuraTecnica;
+    ejemplosCostesMenuales?: EjemplosCostesMenuales;
+    aclaraciones?: AclaracionesAmpliadas;
+    queNecesitamosDelCliente?: string[];
+    validezPresupuesto?: string;
+    notaImportante?: string;
+    siguientePaso?: SiguientePaso;
+    cronograma?: CronogramaFase[];
+    serviciosExtra: ServiceItem[];
 }
 
 // =============================

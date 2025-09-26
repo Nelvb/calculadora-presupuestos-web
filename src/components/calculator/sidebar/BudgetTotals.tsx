@@ -1,14 +1,13 @@
 /*
- * BudgetTotals.tsx
- * Sección de totales del presupuesto en la calculadora.
- *
- * - Muestra precio base, ahorros, extras, total y coste mensual.
- * - Se utiliza dentro del sidebar de la calculadora.
- */
+Componente de totales del presupuesto con diseño consistente
+Muestra precio base, ahorros, extras, total y costes mensuales
+Usa CSS modules para mantener consistencia visual - Layout corregido
+*/
 
 import React from "react";
+import sidebarStyles from "../../../styles/components/BudgetSidebar.module.css";
 
-interface Props {
+interface BudgetTotalsProps {
     precioBase: number;
     savings: number;
     extras: number;
@@ -16,7 +15,7 @@ interface Props {
     monthly: number;
 }
 
-const BudgetTotals: React.FC<Props> = ({
+const BudgetTotals: React.FC<BudgetTotalsProps> = ({
     precioBase,
     savings,
     extras,
@@ -25,30 +24,41 @@ const BudgetTotals: React.FC<Props> = ({
 }) => {
     return (
         <div className="space-y-4">
-            <div className="flex justify-between border-b border-blue-700 pb-2">
+            <div className={sidebarStyles.priceLine}>
                 <span>Precio base:</span>
-                <span className="font-semibold">{precioBase}€</span>
+                <span className={sidebarStyles.priceAmount}>{precioBase}€</span>
             </div>
 
-            <div className="flex justify-between border-b border-blue-700 pb-2">
+            <div className={sidebarStyles.priceLine}>
                 <span>Ahorros:</span>
-                <span className="font-semibold text-green-300">-{savings}€</span>
+                <span className={`${sidebarStyles.priceAmount} ${sidebarStyles.savingsAmount}`}>
+                    -{savings}€
+                </span>
             </div>
 
-            <div className="flex justify-between border-b border-blue-700 pb-2">
+            <div className={sidebarStyles.priceLine}>
                 <span>Extras:</span>
-                <span className="font-semibold text-blue-300">+{extras}€</span>
+                <span className={`${sidebarStyles.priceAmount} ${sidebarStyles.extrasAmount}`}>
+                    +{extras}€
+                </span>
             </div>
 
-            <div className="flex justify-between text-xl font-bold pt-2 border-t-2 border-yellow-400">
-                <span>TOTAL PROYECTO:</span>
-                <span className="text-yellow-300">{total}€</span>
+            <div className={sidebarStyles.finalPrice}>
+                <div className={sidebarStyles.priceLine}>
+                    <span>TOTAL PROYECTO:</span>
+                    <span>{total}€</span>
+                </div>
             </div>
 
             {monthly > 0 && (
-                <div className="flex justify-between text-lg font-semibold pt-2">
-                    <span>Coste mensual:</span>
-                    <span className="text-yellow-300">{monthly}€/mes</span>
+                <div className="mt-4">
+                    <div className={sidebarStyles.priceLine}>
+                        <span>Coste mensual:</span>
+                        <span className={sidebarStyles.priceAmount}>{monthly}€/mes</span>
+                    </div>
+                    <div className="text-xs text-blue-300 mt-1 text-center">
+                        (No incluido en el total del proyecto)
+                    </div>
                 </div>
             )}
         </div>

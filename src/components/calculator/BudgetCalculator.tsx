@@ -1,7 +1,7 @@
 /*
-Componente principal de la calculadora de presupuestos con diseño profesional
-Usa enfoque híbrido: Tailwind para layout + CSS módulos para estilos específicos
-Orquesta todos los componentes y gestiona el estado global de la calculadora
+Componente principal de la calculadora de presupuestos refactorizado
+Usa enfoque modular con componentes separados para cada funcionalidad
+Orquesta la lógica principal pero delega la renderización a componentes específicos
 */
 
 import React from 'react';
@@ -9,8 +9,12 @@ import type { TokenConfig } from '../../config/types';
 import { useConfig } from '../../hooks/useConfig';
 import { useCalculator } from '../../hooks/useCalculator';
 import LoadingSpinner from '../common/LoadingSpinner';
-import { generateBudgetPDF } from '../../utils/pdfGenerator';
 
+// Componentes modulares del sidebar
+import BudgetTotals from './sidebar/BudgetTotals';
+import BudgetSummary from './sidebar/BudgetSummary';
+import BudgetActions from './sidebar/BudgetActions';
+import BudgetContact from './sidebar/BudgetContact';
 
 // CSS Modules
 import calculatorStyles from '../../styles/components/Calculator.module.css';
@@ -51,6 +55,44 @@ const BudgetCalculator: React.FC<BudgetCalculatorProps> = ({
         );
     }
 
+    // Componente para renderizar un servicio individual
+    const ServiceItem = ({ service, isSelected, onToggle, tipo }: {
+        service: any;
+        isSelected: boolean;
+        onToggle: () => void;
+        tipo: 'savings' | 'extras' | 'maintenance';
+    }) => (
+        <div
+            onClick={onToggle}
+            className={`${serviceStyles.serviceItem} ${serviceStyles[tipo]} ${isSelected ? serviceStyles.selected : ''} p-4 flex items-start`}
+        >
+            <input
+                type="checkbox"
+                checked={isSelected}
+                onChange={() => {}}
+                className={`${serviceStyles.checkbox} mr-3 mt-1`}
+            />
+            <div className="flex-1">
+                <h3 className={`${serviceStyles.serviceTitle} mb-1`}>
+                    {service.titulo}
+                </h3>
+                <p className={`${serviceStyles.serviceDescription} mb-2`}>
+                    {service.descripcion}
+                </p>
+                {tipo !== 'maintenance' && (
+                    <span className={`${serviceStyles.priceTag} ${serviceStyles[tipo]}`}>
+                        {tipo === 'savings' ? `AHORRA: ${Math.abs(service.precio)}€` : `+${service.precio}€`}
+                    </span>
+                )}
+                {tipo === 'maintenance' && (
+                    <span className={`${serviceStyles.priceTag} ${serviceStyles.maintenance}`}>
+                        {service.precio}€/mes
+                    </span>
+                )}
+            </div>
+        </div>
+    );
+
     return (
         <div className="min-h-screen">
             <div className="max-w-7xl mx-auto p-4">
@@ -73,7 +115,7 @@ const BudgetCalculator: React.FC<BudgetCalculatorProps> = ({
                 {/* Layout principal: Tailwind Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-                    {/* Contenido principal - Tailwind layout */}
+                    {/* Contenido principal */}
                     <div className="lg:col-span-2 space-y-6">
 
                         {/* Servicios que aporta el cliente (Ahorros) */}
@@ -86,34 +128,18 @@ const BudgetCalculator: React.FC<BudgetCalculatorProps> = ({
                             </p>
 
                             <div className="space-y-4">
-                                {projectConfig.serviciosExtra.filter(s => s.tipo === 'ahorro').map((service) => {
+                                {(commonConfig.serviciosExtra || []).filter(s => s.tipo === 'ahorro').map((service) => {
                                     const isSelected = calculator.calculatorState.serviciosSeleccionados
                                         .some(s => s.id === service.id);
 
                                     return (
-                                        <div
+                                        <ServiceItem
                                             key={service.id}
-                                            onClick={() => calculator.toggleService(service)}
-                                            className={`${serviceStyles.serviceItem} ${serviceStyles.savings} ${isSelected ? serviceStyles.selected : ''} p-4 flex items-start`}
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                checked={isSelected}
-                                                onChange={() => { }} // Controlado por onClick del div
-                                                className={`${serviceStyles.checkbox} mr-3 mt-1`}
-                                            />
-                                            <div className="flex-1">
-                                                <h3 className={`${serviceStyles.serviceTitle} mb-1`}>
-                                                    {service.titulo}
-                                                </h3>
-                                                <p className={`${serviceStyles.serviceDescription} mb-2`}>
-                                                    {service.descripcion}
-                                                </p>
-                                                <span className={`${serviceStyles.priceTag} ${serviceStyles.savings}`}>
-                                                    AHORRA: {Math.abs(service.precio)}€
-                                                </span>
-                                            </div>
-                                        </div>
+                                            service={service}
+                                            isSelected={isSelected}
+                                            onToggle={() => calculator.toggleService(service)}
+                                            tipo="savings"
+                                        />
                                     );
                                 })}
                             </div>
@@ -129,34 +155,18 @@ const BudgetCalculator: React.FC<BudgetCalculatorProps> = ({
                             </p>
 
                             <div className="space-y-4">
-                                {projectConfig.serviciosExtra.filter(s => s.tipo === 'extra').map((service) => {
+                                {[...(commonConfig.serviciosExtra || []), ...(projectConfig.serviciosExtra || [])].filter(s => s.tipo === 'extra').map((service) => {
                                     const isSelected = calculator.calculatorState.serviciosSeleccionados
                                         .some(s => s.id === service.id);
 
                                     return (
-                                        <div
+                                        <ServiceItem
                                             key={service.id}
-                                            onClick={() => calculator.toggleService(service)}
-                                            className={`${serviceStyles.serviceItem} ${serviceStyles.extras} ${isSelected ? serviceStyles.selected : ''} p-4 flex items-start`}
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                checked={isSelected}
-                                                onChange={() => { }}
-                                                className={`${serviceStyles.checkbox} mr-3 mt-1`}
-                                            />
-                                            <div className="flex-1">
-                                                <h3 className={`${serviceStyles.serviceTitle} mb-1`}>
-                                                    {service.titulo}
-                                                </h3>
-                                                <p className={`${serviceStyles.serviceDescription} mb-2`}>
-                                                    {service.descripcion}
-                                                </p>
-                                                <span className={`${serviceStyles.priceTag} ${serviceStyles.extras}`}>
-                                                    +{service.precio}€
-                                                </span>
-                                            </div>
-                                        </div>
+                                            service={service}
+                                            isSelected={isSelected}
+                                            onToggle={() => calculator.toggleService(service)}
+                                            tipo="extras"
+                                        />
                                     );
                                 })}
                             </div>
@@ -177,26 +187,13 @@ const BudgetCalculator: React.FC<BudgetCalculatorProps> = ({
                                         .some(m => m.id === item.id);
 
                                     return (
-                                        <div
+                                        <ServiceItem
                                             key={item.id}
-                                            onClick={() => calculator.toggleMaintenance(item)}
-                                            className={`${serviceStyles.serviceItem} ${serviceStyles.maintenance} ${isSelected ? serviceStyles.selected : ''} p-4 flex items-start`}
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                checked={isSelected}
-                                                onChange={() => { }}
-                                                className={`${serviceStyles.checkbox} mr-3 mt-1`}
-                                            />
-                                            <div className="flex-1">
-                                                <h3 className={`${serviceStyles.serviceTitle} mb-1`}>
-                                                    {item.titulo}
-                                                </h3>
-                                                <p className={serviceStyles.serviceDescription}>
-                                                    {item.descripcion}
-                                                </p>
-                                            </div>
-                                        </div>
+                                            service={item}
+                                            isSelected={isSelected}
+                                            onToggle={() => calculator.toggleMaintenance(item)}
+                                            tipo="maintenance"
+                                        />
                                     );
                                 })}
                             </div>
@@ -222,170 +219,50 @@ const BudgetCalculator: React.FC<BudgetCalculatorProps> = ({
                         </div>
                     </div>
 
-                    {/* Sidebar - Calculadora con diseño profesional */}
+                    {/* Sidebar - Calculadora modular */}
                     <div className="lg:col-span-1">
                         <div className={`${sidebarStyles.sidebar} p-6 sticky top-8`}>
                             <h3 className={`${sidebarStyles.sidebarTitle} mb-6`}>
                                 Calculadora de Presupuesto
                             </h3>
 
-                            {/* Líneas de precio */}
-                            <div className={sidebarStyles.priceLine}>
-                                <span>Precio base:</span>
-                                <span className={sidebarStyles.priceAmount}>{projectConfig.precioBase}€</span>
+                            {/* Componente de totales */}
+                            <BudgetTotals
+                                precioBase={projectConfig.precioBase}
+                                savings={calculator.getSavings()}
+                                extras={calculator.getExtras()}
+                                total={calculator.getTotalPrice()}
+                                monthly={calculator.getMonthlyPrice()}
+                            />
+
+                            {/* Componente de resumen */}
+                            <BudgetSummary
+                                services={calculator.calculatorState.serviciosSeleccionados}
+                                maintenance={calculator.calculatorState.mantenimientoSeleccionado}
+                            />
+
+                            {/* Componente de acciones */}
+                            <BudgetActions
+                                projectConfig={projectConfig}
+                                calculatorState={calculator.calculatorState}
+                                total={calculator.getTotalPrice()}
+                                savings={calculator.getSavings()}
+                                extras={calculator.getExtras()}
+                                monthly={calculator.getMonthlyPrice()}
+                                commonConfig={commonConfig}
+                            />
+
+                            <div className="mt-4">
+                                <button
+                                    onClick={calculator.clearAll}
+                                    className={`${sidebarStyles.actionButton} ${sidebarStyles.btnOutline} w-full`}
+                                >
+                                    Limpiar Todo
+                                </button>
                             </div>
 
-                            <div className={sidebarStyles.priceLine}>
-                                <span>Ahorros:</span>
-                                <span className={`${sidebarStyles.priceAmount} ${sidebarStyles.savingsAmount}`}>
-                                    -{calculator.getSavings()}€
-                                </span>
-                            </div>
-
-                            <div className={sidebarStyles.priceLine}>
-                                <span>Extras:</span>
-                                <span className={`${sidebarStyles.priceAmount} ${sidebarStyles.extrasAmount}`}>
-                                    +{calculator.getExtras()}€
-                                </span>
-                            </div>
-
-                            <div className={sidebarStyles.finalPrice}>
-                                <div className={sidebarStyles.priceLine}>
-                                    <span>TOTAL PROYECTO:</span>
-                                    <span>{calculator.getTotalPrice()}€</span>
-                                </div>
-                            </div>
-
-                            {calculator.getMonthlyPrice() > 0 && (
-                                <div className={`${sidebarStyles.priceLine} mt-4`}>
-                                    <span>Coste mensual:</span>
-                                    <span className={sidebarStyles.priceAmount}>{calculator.getMonthlyPrice()}€/mes</span>
-                                </div>
-                            )}
-
-                            {/* Resumen */}
-                            <div className={sidebarStyles.summarySection}>
-                                <h4 className={sidebarStyles.summaryTitle}>Resumen seleccionado</h4>
-                                <div className={sidebarStyles.summaryContent}>
-                                    {calculator.calculatorState.serviciosSeleccionados.length === 0 &&
-                                        calculator.calculatorState.mantenimientoSeleccionado.length === 0 ? (
-                                        <em className="text-blue-300">Marque las opciones para ver el resumen</em>
-                                    ) : (
-                                        <>
-                                            {calculator.calculatorState.serviciosSeleccionados.length > 0 && (
-                                                <>
-                                                    <div className={sidebarStyles.summaryCategory}>Proyecto:</div>
-                                                    {calculator.calculatorState.serviciosSeleccionados.map(service => (
-                                                        <div key={service.id} className={sidebarStyles.summaryItem}>
-                                                            <span style={{ fontSize: '0.8rem' }}>{service.titulo}</span>
-                                                            <span style={{
-                                                                color: service.tipo === 'ahorro' ? '#68d391' : '#90cdf4',
-                                                                fontWeight: 600,
-                                                                fontSize: '0.8rem'
-                                                            }}>
-                                                                {service.precio < 0 ? service.precio : `+${service.precio}`}€
-                                                            </span>
-                                                        </div>
-                                                    ))}
-                                                </>
-                                            )}
-
-                                            {calculator.calculatorState.mantenimientoSeleccionado.length > 0 && (
-                                                <>
-                                                    <div className={sidebarStyles.summaryCategory}>Mensual:</div>
-                                                    {calculator.calculatorState.mantenimientoSeleccionado.map(maintenance => (
-                                                        <div key={maintenance.id} className={sidebarStyles.summaryItem}>
-                                                            <span style={{ fontSize: '0.8rem' }}>{maintenance.titulo}</span>
-                                                            <span style={{
-                                                                color: '#d69e2e',
-                                                                fontWeight: 600,
-                                                                fontSize: '0.8rem'
-                                                            }}>
-                                                                {maintenance.precio}€/mes
-                                                            </span>
-                                                        </div>
-                                                    ))}
-                                                </>
-                                            )}
-                                        </>
-                                    )}
-                                </div>
-                            </div>
-
-                            {/* Botones de acción */}
-                            <div className={sidebarStyles.actionsSection}>
-                                <div className="flex flex-col gap-3">
-                                    <button
-                                        onClick={() => {
-                                            generateBudgetPDF(
-                                                projectConfig,
-                                                calculator.calculatorState,
-                                                calculator.getTotalPrice(),
-                                                calculator.getSavings(),
-                                                calculator.getExtras(),
-                                                calculator.getMonthlyPrice(),
-                                                commonConfig
-                                            );
-                                        }}
-                                        className={`${sidebarStyles.actionButton} ${sidebarStyles.btnSuccess}`}
-                                    >
-                                        Descargar PDF
-                                    </button>
-
-                                    <button
-                                        onClick={() => {
-                                            const resumen = `*PRESUPUESTO WEB - ${projectConfig.empresa}*\n\n` +
-                                                `💰 TOTAL PROYECTO: ${calculator.getTotalPrice()}€\n` +
-                                                `📊 Precio base: ${projectConfig.precioBase}€\n` +
-                                                `🎯 Ahorros: -${calculator.getSavings()}€\n` +
-                                                `✨ Extras: +${calculator.getExtras()}€\n` +
-                                                (calculator.getMonthlyPrice() > 0 ? `🔄 Mensual: ${calculator.getMonthlyPrice()}€/mes\n` : '') +
-                                                `\n📞 Contacto: ${projectConfig.contacto.telefono}`;
-
-                                            const whatsappUrl = `https://wa.me/34622428891?text=${encodeURIComponent(resumen)}`;
-                                            window.open(whatsappUrl, '_blank');
-                                        }}
-                                        className={`${sidebarStyles.actionButton} ${sidebarStyles.btnPrimary}`}
-                                    >
-                                        Enviar WhatsApp
-                                    </button>
-
-                                    <button
-                                        onClick={() => {
-                                            const subject = `Presupuesto Web - ${projectConfig.empresa}`;
-                                            const body = `Hola,\n\nAdjunto el presupuesto solicitado:\n\n` +
-                                                `TOTAL PROYECTO: ${calculator.getTotalPrice()}€\n` +
-                                                `Precio base: ${projectConfig.precioBase}€\n` +
-                                                `Ahorros: -${calculator.getSavings()}€\n` +
-                                                `Extras: +${calculator.getExtras()}€\n` +
-                                                (calculator.getMonthlyPrice() > 0 ? `Coste mensual: ${calculator.getMonthlyPrice()}€/mes\n` : '') +
-                                                `\nGracias.`;
-
-                                            const mailtoUrl = `mailto:${projectConfig.contacto.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                                            window.location.href = mailtoUrl;
-                                        }}
-                                        className={`${sidebarStyles.actionButton} ${sidebarStyles.btnWarning}`}
-                                    >
-                                        Enviar Email
-                                    </button>
-
-                                    <button
-                                        onClick={calculator.clearAll}
-                                        className={`${sidebarStyles.actionButton} ${sidebarStyles.btnOutline}`}
-                                    >
-                                        Limpiar Todo
-                                    </button>
-                                </div>
-                            </div>
-
-                            {/* Contacto */}
-                            <div className={sidebarStyles.contactSection}>
-                                <h4 className={sidebarStyles.contactTitle}>Contacto</h4>
-                                <div className={sidebarStyles.contactInfo}>
-                                    <p><strong>Tel:</strong> {projectConfig.contacto.telefono}</p>
-                                    <p><strong>Email:</strong> {projectConfig.contacto.email}</p>
-                                </div>
-                            </div>
+                            {/* Componente de contacto */}
+                            <BudgetContact contacto={commonConfig.contacto} />
                         </div>
                     </div>
                 </div>

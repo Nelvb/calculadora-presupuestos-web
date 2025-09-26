@@ -1,14 +1,73 @@
 {
     "id": "reformas",
     "empresa": "Desarrollo Web - Empresa de Reformas",
-    "precioBase": 2800,
+    "precioBase": 1400,
     "tecnologia": "Next.js 15 + TypeScript + Tailwind CSS + PostgreSQL + Flask",
-    "tiempo": "4-5 semanas",
+    "tiempo": "2-3 semanas",
     "descripcion": "Web corporativa con blog para empresa de reformas",
     "resumenEjecutivo": {
         "proyecto": "Web corporativa con blog para empresa de reformas",
-        "tiempoEstimado": "4-5 semanas",
-        "precio": "Precio base: 2.800€ (ajustable según extras o descuentos seleccionados)"
+        "tiempoEstimado": "2-3 semanas",
+        "precio": "Precio base: 1.400€ - Rango final: 1.000€ a 1.400€ según contenido aportado"
+    },
+    "sistemaPrecios": {
+        "titulo": "SISTEMA DE PRECIOS",
+        "precioBase": {
+            "cantidad": 1400,
+            "descripcion": "El precio base incluye web completa funcional con contenido básico",
+            "incluyeContenido": [
+                "Textos básicos generados por IA y editados profesionalmente",
+                "Fotografías de stock optimizadas y relacionadas con reformas",  
+                "Logo tipográfico simple pero profesional",
+                "Paleta de colores básica coherente"
+            ]
+        },
+        "descuentos": {
+            "titulo": "DESCUENTOS POR APORTAR CONTENIDO DE CALIDAD",
+            "descripcion": "Si el cliente aporta contenido profesional propio, aplicamos descuentos por el trabajo ahorrado",
+            "items": [
+                {
+                    "concepto": "Logo vectorizado profesional",
+                    "descuento": 130,
+                    "descripcion": "Logo en .ai, .eps o .svg de alta calidad"
+                },
+                {
+                    "concepto": "Fotografías profesionales",
+                    "descuento": 170,
+                    "descripcion": "Fotos propias de trabajos realizados en alta calidad"
+                },
+                {
+                    "concepto": "Textos redactados y revisados",
+                    "descuento": 100,
+                    "descripcion": "Contenido para todas las páginas, optimizado y corregido"
+                }
+            ],
+            "maximoDescuento": 400,
+            "precioMinimo": 1000,
+            "nota": "Descuentos máximos combinados: -400€. Precio mínimo garantizado: 1.000€"
+        },
+        "ejemplosPrecios": [
+            {
+                "caso": "Sin aportar contenido",
+                "precio": 1400,
+                "descripcion": "Cliente paga precio completo - nosotros creamos todo el contenido"
+            },
+            {
+                "caso": "Aporta logo profesional",
+                "precio": 1270,
+                "descripcion": "1.400€ - 130€ de descuento"
+            },
+            {
+                "caso": "Aporta logo + fotos",
+                "precio": 1100,
+                "descripcion": "1.400€ - 300€ de descuentos"
+            },
+            {
+                "caso": "Aporta todo el contenido",
+                "precio": 1000,
+                "descripcion": "1.400€ - 400€ descuentos = Precio mínimo 1.000€"
+            }
+        ]
     },
     "alcanceDelProyecto": [
         "Web responsive (móvil, tablet, desktop)",
@@ -19,8 +78,32 @@
         "Panel de administración",
         "SEO optimizado",
         "Configuración inicial de hosting",
-        "Galería de trabajos realizados"
+        "Galería de trabajos realizados",
+        "Contenido básico incluido: textos generados por IA, fotos de stock, logo tipográfico, colores"
     ],
+    "contenidoIncluido": {
+        "titulo": "CONTENIDO INCLUIDO EN EL PRECIO BASE (1.400€)",
+        "descripcion": "Su web estará 100% funcional sin necesidad de aportar contenido",
+        "elementos": [
+            {
+                "item": "Textos profesionales",
+                "descripcion": "Contenido generado por IA, editado y optimizado para SEO"
+            },
+            {
+                "item": "Fotografías de stock",
+                "descripcion": "Imágenes profesionales relacionadas con reformas, optimizadas"
+            },
+            {
+                "item": "Logo tipográfico",
+                "descripcion": "Diseño de marca simple pero profesional"
+            },
+            {
+                "item": "Paleta de colores",
+                "descripcion": "Esquema cromático coherente para toda la web"
+            }
+        ],
+        "ventaja": "Descuentos disponibles si aporta contenido profesional propio de mejor calidad"
+    },
     "paginasYFuncionalidades": {
         "paginasPrincipales": [
             {
@@ -57,245 +140,136 @@
             "100% responsive y accesible"
         ]
     },
-    "cronogramaSiAdicionales": {
-        "titulo": "SI SE AÑADEN SERVICIOS ADICIONALES:",
-        "tiemposExtra": [
-            {
-                "servicio": "Logo + fotografía",
-                "tiempo": "+1-2 semanas"
-            },
-            {
-                "servicio": "Funcionalidades avanzadas (citas, calculadora, etc.)",
-                "tiempo": "+1-3 semanas"
-            }
-        ],
-        "nota": "Los servicios de mantenimiento mensual empiezan tras la entrega"
-    },
     "desglose": [
         {
             "categoria": "ANÁLISIS Y DISEÑO",
-            "precio": 400,
+            "precio": 250,
             "items": [
                 {
                     "concepto": "Briefing técnico",
                     "descripcion": "Análisis de necesidades y competencia",
-                    "precio": 150
+                    "precio": 100
                 },
                 {
                     "concepto": "Adaptación diseño",
-                    "descripcion": "Personalización visual y branding",
-                    "precio": 250
+                    "descripcion": "Personalización visual y branding básico",
+                    "precio": 150
                 }
             ]
         },
         {
             "categoria": "DESARROLLO TÉCNICO",
-            "precio": 1600,
+            "precio": 800,
             "items": [
                 {
                     "concepto": "Arquitectura base",
-                    "descripcion": "Migración desde template profesional",
-                    "precio": 400
+                    "descripcion": "Adaptación desde starter template",
+                    "precio": 200
                 },
                 {
                     "concepto": "Páginas principales",
                     "descripcion": "Inicio, Servicios, Nosotros, Contacto",
-                    "precio": 500
+                    "precio": 300
                 },
                 {
                     "concepto": "Sistema de blog",
                     "descripcion": "CRUD completo + editor de contenidos",
-                    "precio": 400
+                    "precio": 200
                 },
                 {
                     "concepto": "Formularios",
                     "descripcion": "Contacto + WhatsApp + integración email",
-                    "precio": 300
+                    "precio": 100
                 }
             ]
         },
         {
-            "categoria": "CONTENIDO Y SEO",
-            "precio": 500,
+            "categoria": "CONTENIDO Y BRANDING BÁSICO",
+            "precio": 250,
             "items": [
                 {
-                    "concepto": "Redacción SEO",
-                    "descripcion": "Textos optimizados (si no los aporta)",
-                    "precio": 200
+                    "concepto": "Redacción y contenidos",
+                    "descripcion": "Textos generados por IA + edición profesional",
+                    "precio": 100
                 },
                 {
-                    "concepto": "Optimización técnica",
+                    "concepto": "Imágenes y branding",
+                    "descripcion": "Fotos de stock + logo tipográfico + colores",
+                    "precio": 100
+                },
+                {
+                    "concepto": "Optimización SEO",
                     "descripcion": "Meta tags, sitemap, velocidad",
-                    "precio": 150
-                },
-                {
-                    "concepto": "Imágenes profesionales",
-                    "descripcion": "Edición, optimización y subida",
-                    "precio": 150
+                    "precio": 50
                 }
             ]
         },
         {
             "categoria": "INFRAESTRUCTURA Y DESPLIEGUE",
-            "precio": 200,
+            "precio": 100,
             "items": [
                 {
                     "concepto": "Setup producción",
                     "descripcion": "Configuración servidor, dominio, SSL",
-                    "precio": 100
+                    "precio": 60
                 },
                 {
                     "concepto": "Testing y pruebas",
                     "descripcion": "Funcionalidad, responsive, velocidad",
-                    "precio": 100
-                }
-            ]
-        },
-        {
-            "categoria": "ENTREGA Y SOPORTE",
-            "precio": 100,
-            "items": [
-                {
-                    "concepto": "Documentación",
-                    "descripcion": "Manual de uso del panel admin",
-                    "precio": 50
-                },
-                {
-                    "concepto": "Formación",
-                    "descripcion": "Sesión de 1h para gestionar contenidos",
-                    "precio": 50
+                    "precio": 40
                 }
             ]
         }
     ],
     "serviciosExtra": [
         {
-            "id": "logo-vectorizado",
-            "titulo": "Tengo logo vectorizado listo",
-            "descripcion": "Logo en formato .ai, .eps o .svg de alta calidad",
-            "precio": -350,
-            "tipo": "ahorro",
-            "seccion": "Diseño y Branding"
-        },
-        {
-            "id": "colores-definidos",
-            "titulo": "Tengo paleta de colores definida",
-            "descripcion": "Colores corporativos y manual de marca",
-            "precio": -200,
-            "tipo": "ahorro",
-            "seccion": "Diseño y Branding"
-        },
-        {
-            "id": "fotos-profesionales",
-            "titulo": "Tengo fotografías profesionales",
-            "descripcion": "Fotos de trabajos realizados en alta calidad",
-            "precio": -400,
-            "tipo": "ahorro",
-            "seccion": "Diseño y Branding"
-        },
-        {
-            "id": "textos-redactados",
-            "titulo": "Tengo todos los textos redactados",
-            "descripcion": "Textos para todas las páginas optimizados y revisados",
-            "precio": -300,
-            "tipo": "ahorro",
-            "seccion": "Contenidos"
-        },
-        {
-            "id": "articulos-blog",
-            "titulo": "Tengo artículos para el blog",
-            "descripcion": "Al menos 5 artículos redactados y listos para publicar",
-            "precio": -150,
-            "tipo": "ahorro",
-            "seccion": "Contenidos"
-        },
-        {
-            "id": "sistema-citas",
-            "titulo": "Sistema de citas online",
-            "descripcion": "Calendario integrado con notificaciones automáticas",
-            "precio": 600,
-            "tipo": "extra",
-            "seccion": "Funcionalidades Adicionales"
-        },
-        {
-            "id": "calculadora-presupuestos",
-            "titulo": "Calculadora de presupuestos",
-            "descripcion": "Formulario interactivo para que clientes estimen costes",
-            "precio": 400,
-            "tipo": "extra",
-            "seccion": "Funcionalidades Adicionales"
-        },
-        {
-            "id": "area-privada",
-            "titulo": "Área privada de clientes",
-            "descripcion": "Login + documentos + seguimiento de proyectos",
-            "precio": 800,
-            "tipo": "extra",
-            "seccion": "Funcionalidades Adicionales"
-        },
-        {
             "id": "galeria-avanzada",
             "titulo": "Galería avanzada antes/después",
-            "descripcion": "Con filtros por categorías y efectos visuales",
-            "precio": 300,
+            "descripcion": "Con filtros por categorías y efectos visuales específicos para reformas",
+            "precio": 180,
             "tipo": "extra",
-            "seccion": "Funcionalidades Adicionales"
+            "seccion": "Funcionalidades específicas de Reformas"
         },
         {
-            "id": "chat-vivo",
-            "titulo": "Chat en vivo",
-            "descripcion": "Integración con Crisp o Intercom",
-            "precio": 200,
+            "id": "portafolio-categorias",
+            "titulo": "Portafolio filtrable por categorías",
+            "descripcion": "Filtros: cocinas, baños, exteriores, reformas integrales",
+            "precio": 220,
             "tipo": "extra",
-            "seccion": "Funcionalidades Adicionales"
+            "seccion": "Funcionalidades específicas de Reformas"
         },
         {
-            "id": "analytics-pro",
-            "titulo": "Google Analytics Pro",
-            "descripcion": "Configuración avanzada con eventos y objetivos",
-            "precio": 200,
+            "id": "calculadora-materiales",
+            "titulo": "Calculadora de materiales",
+            "descripcion": "Estimación automática de costes de materiales por m²",
+            "precio": 320,
             "tipo": "extra",
-            "seccion": "Configuración Avanzada"
+            "seccion": "Funcionalidades específicas de Reformas"
         },
         {
-            "id": "facebook-pixel",
-            "titulo": "Facebook Pixel completo",
-            "descripcion": "Setup con eventos personalizados para conversiones",
-            "precio": 150,
+            "id": "planificador-3d",
+            "titulo": "Visualizador 3D básico",
+            "descripcion": "Subida de planos y visualización básica 3D",
+            "precio": 450,
             "tipo": "extra",
-            "seccion": "Configuración Avanzada"
+            "seccion": "Funcionalidades específicas de Reformas"
         }
     ],
     "cronograma": [
         {
             "semana": 1,
-            "tareas": "Briefing y diseño inicial",
-            "entregables": "Mockups + arquitectura"
+            "tareas": "Briefing, setup y páginas principales",
+            "entregables": "Estructura base funcional"
         },
         {
             "semana": 2,
-            "tareas": "Desarrollo páginas principales",
-            "entregables": "Páginas básicas funcionales"
+            "tareas": "Blog, formularios y integraciones",
+            "entregables": "Funcionalidades completas"
         },
         {
             "semana": 3,
-            "tareas": "Blog + panel admin",
-            "entregables": "Sistema de gestión completo"
-        },
-        {
-            "semana": 4,
-            "tareas": "Integración formularios + WhatsApp",
-            "entregables": "Funcionalidades de contacto"
-        },
-        {
-            "semana": 5,
-            "tareas": "SEO + testing + despliegue",
+            "tareas": "SEO, testing y despliegue",
             "entregables": "Web en producción"
         }
-    ],
-    "contacto": {
-        "telefono": "+34 622 42 88 91",
-        "email": "nelsonvbarcelona@gmail.com",
-        "whatsapp": "+34622428891"
-    }
+    ]
 }

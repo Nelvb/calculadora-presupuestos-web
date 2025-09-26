@@ -6,8 +6,24 @@ usando las interfaces definidas en types.ts
 
 import type { CommonConfig, MaintenanceConfig } from "./types";
 
-// Declaración para cualquier common.json (en cualquier ruta)
-declare module "*/common.json" {
+// Declaración específica para common.json - múltiples patrones para asegurar compatibilidad
+declare module "../config/base/common.json" {
+    const value: CommonConfig;
+    export default value;
+}
+
+declare module "./base/common.json" {
+    const value: CommonConfig;
+    export default value;
+}
+
+declare module "src/config/base/common.json" {
+    const value: CommonConfig;
+    export default value;
+}
+
+// Declaración usando patrón wildcard para cualquier common.json
+declare module "**/common.json" {
     const value: CommonConfig;
     export default value;
 }

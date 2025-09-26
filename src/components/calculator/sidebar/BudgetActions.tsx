@@ -1,14 +1,13 @@
 /*
- * BudgetActions.tsx
- * Acciones del presupuesto: Descargar PDF, enviar por WhatsApp o Email.
- *
- * - Usa generateBudgetPDF para crear el PDF.
- * - Construye enlaces dinámicos con el total y servicios seleccionados.
- */
+Componente de acciones del presupuesto versión limpia
+Sin iconos, sin preview, solo funcionalidades esenciales
+Diseño profesional y minimalista
+*/
 
 import React from "react";
-import type { ProjectConfig, CalculatorState } from "../../../config/types";
+import type { ProjectConfig, CalculatorState, CommonConfig } from "../../../config/types";
 import { generateBudgetPDF } from "../../../utils/pdfGenerator";
+import sidebarStyles from "../../../styles/components/BudgetSidebar.module.css";
 
 interface BudgetActionsProps {
     projectConfig: ProjectConfig;
@@ -17,6 +16,7 @@ interface BudgetActionsProps {
     savings: number;
     extras: number;
     monthly: number;
+    commonConfig: CommonConfig;
 }
 
 const BudgetActions: React.FC<BudgetActionsProps> = ({
@@ -26,20 +26,8 @@ const BudgetActions: React.FC<BudgetActionsProps> = ({
     savings,
     extras,
     monthly,
+    commonConfig,
 }) => {
-    // Teléfono y email destino
-    const whatsappNumber = "+34622428891";
-    const emailAddress = "nelsonvbarcelona@gmail.com";
-
-    // Texto del resumen
-    const resumen = `
-Proyecto: ${projectConfig.empresa}
-Total: ${total}€
-Ahorros: ${savings}€
-Extras: ${extras}€
-Mantenimiento mensual: ${monthly}€
-  `.trim();
-
     const handleDownloadPDF = () => {
         generateBudgetPDF(
             projectConfig,
@@ -47,51 +35,62 @@ Mantenimiento mensual: ${monthly}€
             total,
             savings,
             extras,
-            monthly
+            monthly,
+            commonConfig
         );
     };
 
     const handleSendWhatsApp = () => {
-        const url = `https://wa.me/${whatsappNumber.replace(
-            "+",
-            ""
-        )}?text=${encodeURIComponent(resumen)}`;
-        window.open(url, "_blank");
+        const resumen = `*PRESUPUESTO WEB - ${projectConfig.empresa}*\n\n` +
+            `💰 TOTAL PROYECTO: ${total}€\n` +
+            `📊 Precio base: ${projectConfig.precioBase}€\n` +
+            `🎯 Ahorros: -${savings}€\n` +
+            `✨ Extras: +${extras}€\n` +
+            (monthly > 0 ? `🔄 Mensual: ${monthly}€/mes\n` : '') +
+            `\n📞 Contacto: ${commonConfig.contacto.telefono}`;
+
+        const whatsappUrl = `https://wa.me/34622428891?text=${encodeURIComponent(resumen)}`;
+        window.open(whatsappUrl, '_blank');
     };
 
     const handleSendEmail = () => {
-        const subject = encodeURIComponent(
-            `Presupuesto: ${projectConfig.empresa}`
-        );
-        const body = encodeURIComponent(resumen);
-        window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+        const subject = `Presupuesto Web - ${projectConfig.empresa}`;
+        const body = `Hola,\n\nAdjunto el presupuesto solicitado:\n\n` +
+            `TOTAL PROYECTO: ${total}€\n` +
+            `Precio base: ${projectConfig.precioBase}€\n` +
+            `Ahorros: -${savings}€\n` +
+            `Extras: +${extras}€\n` +
+            (monthly > 0 ? `Coste mensual: ${monthly}€/mes\n` : '') +
+            `\nGracias.`;
+
+        const mailtoUrl = `mailto:${commonConfig.contacto.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoUrl;
     };
 
     return (
-        <div className="mt-6 pt-6 border-t border-blue-700 space-y-3">
-            <button
-                type="button"
-                onClick={handleDownloadPDF}
-                className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition-colors"
-            >
-                Descargar PDF
-            </button>
+        <div className={sidebarStyles.actionsSection}>
+            <div className="flex flex-col gap-3">
+                <button
+                    onClick={handleDownloadPDF}
+                    className={`${sidebarStyles.actionButton} ${sidebarStyles.btnSuccess}`}
+                >
+                    Descargar PDF
+                </button>
 
-            <button
-                type="button"
-                onClick={handleSendWhatsApp}
-                className="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded transition-colors"
-            >
-                Enviar WhatsApp
-            </button>
+                <button
+                    onClick={handleSendWhatsApp}
+                    className={`${sidebarStyles.actionButton} ${sidebarStyles.btnPrimary}`}
+                >
+                    Enviar WhatsApp
+                </button>
 
-            <button
-                type="button"
-                onClick={handleSendEmail}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded transition-colors"
-            >
-                Enviar Email
-            </button>
+                <button
+                    onClick={handleSendEmail}
+                    className={`${sidebarStyles.actionButton} ${sidebarStyles.btnWarning}`}
+                >
+                    Enviar Email
+                </button>
+            </div>
         </div>
     );
 };

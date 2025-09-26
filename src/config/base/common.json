@@ -15,6 +15,136 @@
         "email": "nelsonvbarcelona@gmail.com",
         "whatsapp": "+34622428891"
     },
+    "serviciosExtra": [
+        {
+            "id": "logo-vectorizado",
+            "titulo": "Logo vectorizado profesional",
+            "descripcion": "Logo en formato .ai, .eps o .svg de alta calidad",
+            "precio": -130,
+            "tipo": "ahorro",
+            "seccion": "Diseño y Branding"
+        },
+        {
+            "id": "fotos-profesionales",
+            "titulo": "Fotografías profesionales",
+            "descripcion": "Fotos de trabajos realizados en alta calidad",
+            "precio": -170,
+            "tipo": "ahorro",
+            "seccion": "Diseño y Branding"
+        },
+        {
+            "id": "textos-redactados",
+            "titulo": "Textos redactados",
+            "descripcion": "Textos para todas las páginas, optimizados y revisados",
+            "precio": -100,
+            "tipo": "ahorro",
+            "seccion": "Contenidos"
+        },
+        {
+            "id": "sistema-citas",
+            "titulo": "Sistema de citas online",
+            "descripcion": "Calendario integrado con notificaciones automáticas",
+            "precio": 350,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Adicionales"
+        },
+        {
+            "id": "calculadora-presupuestos",
+            "titulo": "Calculadora de presupuestos",
+            "descripcion": "Formulario interactivo para que clientes estimen costes",
+            "precio": 280,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Adicionales"
+        },
+        {
+            "id": "area-privada",
+            "titulo": "Área privada de clientes",
+            "descripcion": "Login + documentos + seguimiento de proyectos",
+            "precio": 450,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Adicionales"
+        },
+        {
+            "id": "chat-vivo",
+            "titulo": "Chat en vivo",
+            "descripcion": "Integración con Crisp o Intercom",
+            "precio": 120,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Adicionales"
+        },
+        {
+            "id": "analytics-pro",
+            "titulo": "Google Analytics Pro",
+            "descripcion": "Configuración avanzada con eventos y objetivos",
+            "precio": 150,
+            "tipo": "extra",
+            "seccion": "Configuración Avanzada"
+        },
+        {
+            "id": "facebook-pixel",
+            "titulo": "Facebook Pixel completo",
+            "descripcion": "Setup con eventos personalizados para conversiones",
+            "precio": 100,
+            "tipo": "extra",
+            "seccion": "Configuración Avanzada"
+        },
+        {
+            "id": "integracion-apis",
+            "titulo": "Integración de APIs externas",
+            "descripcion": "Conexión con CRM, Google Calendar, Zapier u otros servicios",
+            "precio": 250,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Avanzadas"
+        },
+        {
+            "id": "pagos-stripe",
+            "titulo": "Sistema de pagos Stripe/TPV",
+            "descripcion": "Integración con pasarela de pagos para reservas o compras",
+            "precio": 300,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Avanzadas"
+        },
+        {
+            "id": "dashboard-analytics",
+            "titulo": "Dashboard analytics",
+            "descripcion": "Panel personalizado con métricas de negocio",
+            "precio": 280,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Avanzadas"
+        },
+        {
+            "id": "core-web-vitals",
+            "titulo": "Optimización Core Web Vitals",
+            "descripcion": "Mejora de velocidad, rendimiento y SEO técnico",
+            "precio": 180,
+            "tipo": "extra",
+            "seccion": "Optimización Técnica"
+        },
+        {
+            "id": "pwa",
+            "titulo": "PWA (Progressive Web App)",
+            "descripcion": "Convierte la web en una app instalable",
+            "precio": 200,
+            "tipo": "extra",
+            "seccion": "Funcionalidades Avanzadas"
+        },
+        {
+            "id": "ssl",
+            "titulo": "SSL y certificados avanzados",
+            "descripcion": "Instalación y configuración de certificados SSL",
+            "precio": 80,
+            "tipo": "extra",
+            "seccion": "Configuración Avanzada"
+        },
+        {
+            "id": "monitoring",
+            "titulo": "Monitoring y alertas",
+            "descripcion": "Monitoreo de uptime y alertas de incidencias",
+            "precio": 120,
+            "tipo": "extra",
+            "seccion": "Optimización Técnica"
+        }
+    ],
     "infraestructuraTecnica": {
         "sistemaEmails": {
             "descripcion": "Sistema de emails (el cliente debe elegir):",
@@ -99,10 +229,10 @@
                     },
                     {
                         "concepto": "Mantenimiento técnico",
-                        "coste": "60€/mes"
+                        "coste": "45€/mes"
                     }
                 ],
-                "total": "85-160€/mes"
+                "total": "70-145€/mes"
             },
             {
                 "nombre": "Web con soporte completo",
@@ -113,18 +243,18 @@
                     },
                     {
                         "concepto": "Mantenimiento técnico",
-                        "coste": "60€/mes"
+                        "coste": "45€/mes"
                     },
                     {
                         "concepto": "Gestión contenidos",
-                        "coste": "120€/mes"
+                        "coste": "80€/mes"
                     },
                     {
                         "concepto": "Soporte prioritario",
-                        "coste": "40€/mes"
+                        "coste": "30€/mes"
                     }
                 ],
-                "total": "245-320€/mes"
+                "total": "180-255€/mes"
             }
         ],
         "nota": "Estos son ejemplos orientativos. Cada cliente puede elegir solo los servicios técnicos que necesite."
@@ -138,7 +268,10 @@
             "Botones de redes sociales (enlaces simples)",
             "Google Analytics básico (instalación + configuración inicial)",
             "Google Search Console (configuración básica)",
-            "Documentación técnica"
+            "Documentación técnica",
+            "Textos básicos generados por IA",
+            "Fotos de stock optimizadas",
+            "Logo tipográfico simple"
         ],
         "noIncluido": [
             "Gestión de contenido en redes sociales",
@@ -171,9 +304,9 @@
         }
     },
     "queNecesitamosDelCliente": [
-        "Logo en formato vectorial (.ai, .eps o .svg)",
-        "Textos redactados (o presupuesto adicional)",
-        "Fotos de calidad de trabajos realizados", 
+        "Logo en formato vectorial (.ai, .eps o .svg) - opcional",
+        "Textos redactados - opcional", 
+        "Fotos de calidad de trabajos realizados - opcional",
         "Datos de contacto y redes sociales",
         "Decisión sobre email: usar el suyo o contratar servicio",
         "Decisión sobre hosting: preferencia entre simplicidad o potencia"
@@ -188,6 +321,5 @@
             "Aclarar qué servicios adicionales les interesan", 
             "Resolver dudas técnicas"
         ]
-    },
-    "cronograma": []
+    }
 }

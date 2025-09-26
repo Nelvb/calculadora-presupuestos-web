@@ -1,12 +1,11 @@
 /*
- * BudgetContact.tsx
- * Sección de contacto en la calculadora de presupuestos.
- *
- * - Muestra teléfono, email y WhatsApp del proyecto.
- * - Se utiliza en el sidebar de la calculadora.
- */
+Componente de información de contacto con diseño consistente
+Muestra teléfono, email y WhatsApp del proyecto
+Usa CSS modules para mantener consistencia visual
+*/
 
 import React from "react";
+import sidebarStyles from "../../../styles/components/BudgetSidebar.module.css";
 
 interface ContactInfo {
     telefono: string;
@@ -14,15 +13,15 @@ interface ContactInfo {
     whatsapp?: string;
 }
 
-interface Props {
+interface BudgetContactProps {
     contacto: ContactInfo;
 }
 
-const BudgetContact: React.FC<Props> = ({ contacto }) => {
+const BudgetContact: React.FC<BudgetContactProps> = ({ contacto }) => {
     return (
-        <div className="mt-6 pt-6 border-t border-blue-700">
-            <h4 className="font-semibold mb-2">Contacto</h4>
-            <div className="text-sm space-y-1">
+        <div className={sidebarStyles.contactSection}>
+            <h4 className={sidebarStyles.contactTitle}>Contacto</h4>
+            <div className={sidebarStyles.contactInfo}>
                 <p>
                     <strong>Tel:</strong> {contacto.telefono}
                 </p>
