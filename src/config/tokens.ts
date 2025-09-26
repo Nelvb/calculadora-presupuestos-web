@@ -11,7 +11,7 @@ export const VALID_TOKENS: TokenConfig[] = [
         project: 'reformas',
         token: 'rf_2024_abc123',
         client: 'García Reformas S.L.',
-        expires: '2024-12-31',
+        expires: '2025-12-31',
         active: true
     },
     {
